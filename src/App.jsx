@@ -570,6 +570,36 @@ const etaUncertainty = useMemo(() => {
             <RotateCcw className="mr-2 h-4 w-4" /> 重置仿真
           </Button>
         </div>
+        <div className="rounded-[24px] bg-slate-50 p-5">
+  <div className="mb-3 text-lg font-semibold">主要物理量解释</div>
+
+  <div className="grid gap-3 text-sm leading-7 text-slate-700">
+    <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+      <b>修正后终端速度</b>：指小球在液体中达到受力平衡后稳定下落的速度，
+      并已考虑量筒内径和液柱高度带来的边界修正影响。
+    </div>
+
+    <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+      <b>计时区理论时间</b>：指小球以修正后终端速度通过 A 线到 B 线之间计时区
+      所需要的理论时间，可用于帮助理解实验中计时数据的大致范围。
+    </div>
+
+    <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+      <b>边界修正系数</b>：用于修正量筒壁面和液柱高度对小球下落速度的影响。
+      该值越偏离 1，说明边界效应越明显，实验结果越需要修正。
+    </div>
+
+    <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+      <b>雷诺数 Re</b>：用于判断液体流动状态的无量纲物理量。
+      当雷诺数较小时，液体流动更接近层流状态，斯托克斯公式更适用。
+    </div>
+
+    <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+      <b>公式适用性</b>：根据当前参数下的雷诺数和运动条件，
+      对斯托克斯公式是否较适合用于本实验进行提示。
+    </div>
+  </div>
+</div>
       </CardContent>
     </Card>
 
@@ -686,9 +716,9 @@ const etaUncertainty = useMemo(() => {
 
         <Card className="rounded-3xl shadow-sm sm:col-span-2">
           <CardContent className="p-6">
-            <div className="text-sm text-slate-500">实验说明</div>
+            <div className="text-sm text-slate-500">仿真动画说明</div>
             <div className="mt-2 text-base leading-7 text-slate-700">
-              仿真实验中，小球先经过上部加速区；当其进入 A 线后开始计时，在 B 线停止计时。
+              仿真动画中，小球先经过上部加速区；当其进入 A 线后开始计时，在 B 线停止计时。
               这样得到的是更接近终端速度条件下的测量结果，与真实落球法实验的处理方式一致。
             </div>
           </CardContent>
